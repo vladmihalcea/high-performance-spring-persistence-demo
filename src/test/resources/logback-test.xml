@@ -21,6 +21,7 @@
     </appender>
 
     <logger name="org.springframework" level="warn"/>
+    <logger name="org.springframework.data.jdbc.core.convert" level="error"/>
 
     <logger name="net.ttddyy.dsproxy.listener" level="debug"/>
 

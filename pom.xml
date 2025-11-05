@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.5</version>
+        <version>3.5.7</version>
     </parent>
     <name>High-Performance Spring Persistence Demo</name>
 
@@ -30,7 +30,7 @@
         <jacoco.version>0.8.2</jacoco.version>
 
         <testcontainers.version>1.18.3</testcontainers.version>
-        <postgresql.version>42.3.3</postgresql.version>
+        <postgresql.version>42.7.8</postgresql.version>
         <hibernate.version>6.6.29.Final</hibernate.version>
         <datasource-proxy.version>1.10</datasource-proxy.version>
 
@@ -60,6 +60,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

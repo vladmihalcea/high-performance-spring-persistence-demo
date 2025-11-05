@@ -6,7 +6,7 @@ import com.blazebit.persistence.spi.CriteriaBuilderConfiguration;
 import com.blazebit.persistence.view.EntityViewManager;
 import com.blazebit.persistence.view.EntityViews;
 import com.blazebit.persistence.view.spi.EntityViewConfiguration;
-import com.vladmihalcea.spring.demo.domain.views.PostView;
+import com.vladmihalcea.spring.demo.domain.jpa.views.PostView;
 import io.hypersistence.utils.common.ReflectionUtils;
 import io.hypersistence.utils.spring.repository.BaseJpaRepositoryImpl;
 import jakarta.persistence.EntityManagerFactory;
