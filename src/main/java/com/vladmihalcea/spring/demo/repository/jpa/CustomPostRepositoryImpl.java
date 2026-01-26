@@ -7,7 +7,7 @@ import com.blazebit.persistence.view.EntityViewManager;
 import com.blazebit.persistence.view.EntityViewSetting;
 import com.vladmihalcea.spring.demo.domain.jpa.Post;
 import com.vladmihalcea.spring.demo.domain.jpa.PostComment;
-import com.vladmihalcea.spring.demo.domain.Post_;
+import com.vladmihalcea.spring.demo.domain.jpa.Post_;
 import com.vladmihalcea.spring.demo.domain.jpa.views.PostWithCommentsAndTagsView;
 import com.vladmihalcea.spring.demo.domain.jpa.dtos.PostSummary;
 import jakarta.persistence.EntityManager;

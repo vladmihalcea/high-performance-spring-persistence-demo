@@ -3,7 +3,7 @@ package com.vladmihalcea.spring.demo.service.jpa;
 import com.blazebit.persistence.PagedList;
 import com.vladmihalcea.spring.demo.domain.jpa.Post;
 import com.vladmihalcea.spring.demo.domain.jpa.PostComment;
-import com.vladmihalcea.spring.demo.domain.Post_;
+import com.vladmihalcea.spring.demo.domain.jpa.Post_;
 import com.vladmihalcea.spring.demo.domain.jpa.views.PostWithCommentsAndTagsView;
 import com.vladmihalcea.spring.demo.repository.jpa.PostCommentRepository;
 import com.vladmihalcea.spring.demo.repository.jpa.PostRepository;

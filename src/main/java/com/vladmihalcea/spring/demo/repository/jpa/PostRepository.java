@@ -1,7 +1,7 @@
 package com.vladmihalcea.spring.demo.repository.jpa;
 
 import com.vladmihalcea.spring.demo.domain.jpa.Post;
-import com.vladmihalcea.spring.demo.domain.Post_;
+import com.vladmihalcea.spring.demo.domain.jpa.Post_;
 import com.vladmihalcea.spring.demo.domain.jpa.dtos.PostSummary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
