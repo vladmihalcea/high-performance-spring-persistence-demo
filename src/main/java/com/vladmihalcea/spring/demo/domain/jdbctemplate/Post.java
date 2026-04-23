@@ -53,4 +53,14 @@ public class Post {
     public List<Tag> getTags() {
         return tags;
     }
+
+    public Post addComment(PostComment comment) {
+        comments.add(comment);
+        return this;
+    }
+
+    public Post addTag(Tag tag) {
+        tags.add(tag);
+        return this;
+    }
 }
