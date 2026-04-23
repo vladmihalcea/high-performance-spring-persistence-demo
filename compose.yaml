@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:18-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: high_performance_java_persistence
+    volumes:
+      - pgdata:/var/lib/postgresql
+    command: [ "postgres", "-c", "log_statement=all" ]
+
+volumes:
+  pgdata:
