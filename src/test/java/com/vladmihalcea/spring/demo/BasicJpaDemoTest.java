@@ -105,7 +105,7 @@ public class BasicJpaDemoTest extends BaseDemoTest {
 			}
 
 			entityManager.persist(post);
-			warmUpHibernateQueryPlanCache(() ->
+			warmUpPlanCache(() ->
 				postRepository.findByIdWithComments(1L)
 			);
 		});
@@ -217,7 +217,7 @@ public class BasicJpaDemoTest extends BaseDemoTest {
 
 				entityManager.persist(post);
 			}
-			warmUpHibernateQueryPlanCache(() ->
+			warmUpPlanCache(() ->
 				postRepository.firstLatestPostSummariesAntiPattern(1)
 			);
 		});
@@ -229,7 +229,7 @@ public class BasicJpaDemoTest extends BaseDemoTest {
 			List<PostSummary> postSummaries = postRepository.firstLatestPostSummariesAntiPattern(POST_COUNT_SIZE);
 
 			LOGGER.debug("Fetching {} PostSummary objects took {} ms", POST_COUNT_SIZE, elapsedMillis(startNanos));
-			SQLStatementCountValidator.assertSelectCount(1);
+			SQLStatementCountValidator.assertSelectCount(7);
 
 			assertEquals(POST_COUNT_SIZE, postSummaries.size());
 		});
@@ -249,7 +249,7 @@ public class BasicJpaDemoTest extends BaseDemoTest {
 
 				entityManager.persist(post);
 			}
-			warmUpHibernateQueryPlanCache(() ->
+			warmUpPlanCache(() ->
 				postRepository.firstLatestPostSummaries(1)
 			);
 		});

@@ -1,0 +1,65 @@
+jOOQ
+----
+select "p"."id", "p"."title", (select coalesce(jsonb_agg(jsonb_build_array("v0", "v1", "v2")), jsonb_build_array()) from (select "pc"."id" as "v0", "pc"."review" as "v1", (select coalesce(jsonb_agg(jsonb_build_array("v0", "v1", "v2", "v3", "v4")), jsonb_build_array()) from (select "uv"."id" as "v0", "uv"."score" as "v1", "u"."national_id" as "v2", "u"."first_name" as "v3", "u"."last_name" as "v4" from "user_votes" as "uv" join "users" as "u" on "uv"."user_id" = "u"."national_id" where "uv"."comment_id" = "pc"."id") as t) as "v2" from "post_comments" as "pc" where "pc"."post_id" = "p"."id") as t), (select coalesce(jsonb_agg(jsonb_build_array("v0", "v1")), jsonb_build_array()) from (select "t"."id" as "v0", "t"."name" as "v1" from "post_tags" as "pt" join "tags" as "t" on "pt"."tag_id" = "t"."id" where "pt"."post_id" = "p"."id") as t) from "posts" as "p" where "p"."id" between 1 and 50
+
+QUERY PLAN
+Seq Scan on posts p  (cost=0.00..11003.93 rows=50 width=83) (actual time=1.053..54.099 rows=50 loops=1)
+  Filter: ((id >= 1) AND (id <= 50))
+  SubPlan 2
+    ->  Aggregate  (cost=199.90..199.91 rows=1 width=32) (actual time=0.885..0.885 rows=1 loops=50)
+          ->  Index Scan using fk_post_comment_post_id on post_comments pc  (cost=0.15..8.50 rows=20 width=19) (actual time=0.004..0.012 rows=20 loops=50)
+                Index Cond: (post_id = p.id)
+          SubPlan 1
+            ->  Aggregate  (cost=9.55..9.56 rows=1 width=32) (actual time=0.030..0.030 rows=1 loops=1000)
+                  ->  Nested Loop  (cost=0.28..9.52 rows=5 width=31) (actual time=0.003..0.007 rows=5 loops=1000)
+                        Join Filter: ((uv.user_id)::text = (u.national_id)::text)
+                        Rows Removed by Join Filter: 2
+                        ->  Index Scan using fk_users_post_comment_id on user_votes uv  (cost=0.28..8.37 rows=5 width=19) (actual time=0.002..0.003 rows=5 loops=1000)
+                              Index Cond: (comment_id = pc.id)
+                        ->  Materialize  (cost=0.00..1.03 rows=2 width=19) (actual time=0.000..0.000 rows=1 loops=5000)
+                              ->  Seq Scan on users u  (cost=0.00..1.02 rows=2 width=19) (actual time=0.013..0.013 rows=2 loops=1)
+  SubPlan 3
+    ->  Aggregate  (cost=20.12..20.13 rows=1 width=32) (actual time=0.188..0.188 rows=1 loops=50)
+          ->  Hash Join  (cost=1.45..20.01 rows=20 width=18) (actual time=0.082..0.141 rows=20 loops=50)
+                Hash Cond: (pt.tag_id = t.id)
+                ->  Seq Scan on post_tags pt  (cost=0.00..18.50 rows=20 width=8) (actual time=0.051..0.104 rows=20 loops=50)
+                      Filter: (post_id = p.id)
+                      Rows Removed by Filter: 980
+                ->  Hash  (cost=1.20..1.20 rows=20 width=18) (actual time=0.017..0.017 rows=20 loops=1)
+                      Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                      ->  Seq Scan on tags t  (cost=0.00..1.20 rows=20 width=18) (actual time=0.012..0.013 rows=20 loops=1)
+Planning Time: 0.675 ms
+Execution Time: 54.245 ms
+
+Blaze
+-----
+select p1_0.id,(select json_agg(json_build_object('f0','' || c1_0.id,'f1','' || c1_0.review,'f2',(select json_agg(json_build_object('f0','' || v1_0.id,'f1','' || v1_0.score,'f2','' || u1_0.national_id,'f3','' || u1_0.first_name,'f4','' || u1_0.last_name)) from user_votes v1_0 left join users u1_0 on u1_0.national_id=v1_0.user_id where c1_0.id=v1_0.comment_id))) from post_comments c1_0 where p1_0.id=c1_0.post_id),(select json_agg(json_build_object('f0','' || t1_0.tag_id,'f1','' || t1_1.name)) from post_tags t1_0 join tags t1_1 on t1_1.id=t1_0.tag_id where p1_0.id=t1_0.post_id),p1_0.title from posts p1_0 where p1_0.id between 1 and 50
+
+QUERY PLAN
+Seq Scan on posts p1_0  (cost=0.00..11133.68 rows=50 width=83) (actual time=0.735..33.733 rows=50 loops=1)
+  Filter: ((id >= 1) AND (id <= 50))
+  SubPlan 2
+    ->  Aggregate  (cost=202.30..202.31 rows=1 width=32) (actual time=0.522..0.522 rows=1 loops=50)
+          ->  Index Scan using fk_post_comment_post_id on post_comments c1_0  (cost=0.15..8.50 rows=20 width=19) (actual time=0.003..0.008 rows=20 loops=50)
+                Index Cond: (post_id = p1_0.id)
+          SubPlan 1
+            ->  Aggregate  (cost=9.66..9.67 rows=1 width=32) (actual time=0.022..0.022 rows=1 loops=1000)
+                  ->  Nested Loop Left Join  (cost=0.28..9.52 rows=5 width=31) (actual time=0.002..0.005 rows=5 loops=1000)
+                        Join Filter: ((u1_0.national_id)::text = (v1_0.user_id)::text)
+                        Rows Removed by Join Filter: 2
+                        ->  Index Scan using fk_users_post_comment_id on user_votes v1_0  (cost=0.28..8.37 rows=5 width=19) (actual time=0.001..0.002 rows=5 loops=1000)
+                              Index Cond: (comment_id = c1_0.id)
+                        ->  Materialize  (cost=0.00..1.03 rows=2 width=19) (actual time=0.000..0.000 rows=1 loops=5000)
+                              ->  Seq Scan on users u1_0  (cost=0.00..1.02 rows=2 width=19) (actual time=0.013..0.013 rows=2 loops=1)
+  SubPlan 3
+    ->  Aggregate  (cost=20.32..20.33 rows=1 width=32) (actual time=0.145..0.145 rows=1 loops=50)
+          ->  Hash Join  (cost=1.45..20.01 rows=20 width=18) (actual time=0.066..0.110 rows=20 loops=50)
+                Hash Cond: (t1_0.tag_id = t1_1.id)
+                ->  Seq Scan on post_tags t1_0  (cost=0.00..18.50 rows=20 width=8) (actual time=0.042..0.082 rows=20 loops=50)
+                      Filter: (p1_0.id = post_id)
+                      Rows Removed by Filter: 980
+                ->  Hash  (cost=1.20..1.20 rows=20 width=18) (actual time=0.019..0.019 rows=20 loops=1)
+                      Buckets: 1024  Batches: 1  Memory Usage: 10kB
+                      ->  Seq Scan on tags t1_1  (cost=0.00..1.20 rows=20 width=18) (actual time=0.012..0.014 rows=20 loops=1)
+Planning Time: 0.648 ms
+Execution Time: 33.847 ms

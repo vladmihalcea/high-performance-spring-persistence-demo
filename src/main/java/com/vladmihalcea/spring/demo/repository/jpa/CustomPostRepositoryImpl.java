@@ -8,8 +8,8 @@ import com.blazebit.persistence.view.EntityViewSetting;
 import com.vladmihalcea.spring.demo.domain.jpa.Post;
 import com.vladmihalcea.spring.demo.domain.jpa.PostComment;
 import com.vladmihalcea.spring.demo.domain.jpa.Post_;
-import com.vladmihalcea.spring.demo.domain.jpa.views.PostWithCommentsAndTagsView;
 import com.vladmihalcea.spring.demo.domain.jpa.dtos.PostSummary;
+import com.vladmihalcea.spring.demo.domain.jpa.views.PostWithCommentsAndTagsView;
 import jakarta.persistence.EntityManager;
 import org.springframework.data.domain.Sort;
 

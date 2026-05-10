@@ -1,0 +1,9 @@
+Tech,Avergae Reposne Time
+Blaze Persistence MULTISET,23.976
+JdbcTemplate Multiple Queries,13.479
+JdbcTemplate Cartesian Product,474.419
+jOOQ MULTISET,52.967
+jOOQ Multiple Queries,19.028
+JPA Multiple Queries,23.002
+Spring Data JDBC N+1,350.649
+Spring Data JDBC Single Query,21.617

@@ -17,7 +17,7 @@ import static com.vladmihalcea.spring.util.Utils.elapsedMillis;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class SpringDataJpaDemoTest extends BaseMultilevelDemoTest {
+public class SpringDataJpaMultipleQueriesDemoTest extends BaseMultilevelDemoTest {
 
 	protected final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
@@ -55,7 +55,7 @@ public class SpringDataJpaDemoTest extends BaseMultilevelDemoTest {
 	public void testMultiLevelFetchingWithProgressiveJoinFetching() {
 		addHierarchicalData();
 
-		warmUpHibernateQueryPlanCache(() ->
+		warmUpPlanCache(() ->
 			forumService.findWithCommentsAndTagsByIds(1L, 50L)
 		);
 

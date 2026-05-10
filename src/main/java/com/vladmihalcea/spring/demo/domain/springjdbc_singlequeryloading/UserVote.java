@@ -12,6 +12,8 @@ public class UserVote {
     @Id
     private Long id;
 
+    private Long commentId;
+
     private int score;
 
     public Long getId() {
@@ -20,6 +22,15 @@ public class UserVote {
 
     public UserVote setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public Long getCommentId() {
+        return commentId;
+    }
+
+    public UserVote setCommentId(Long commentId) {
+        this.commentId = commentId;
         return this;
     }
 

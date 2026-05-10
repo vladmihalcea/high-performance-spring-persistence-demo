@@ -7,6 +7,7 @@ import com.vladmihalcea.spring.demo.domain.jpa.Post_;
 import com.vladmihalcea.spring.demo.domain.jpa.views.PostWithCommentsAndTagsView;
 import com.vladmihalcea.spring.demo.repository.jpa.PostCommentRepository;
 import com.vladmihalcea.spring.demo.repository.jpa.PostRepository;
+import com.vladmihalcea.spring.demo.service.PostHierarchyRetrievalService;
 import jakarta.persistence.EntityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,7 @@ import static com.vladmihalcea.spring.util.Utils.elapsedMillis;
  */
 @Service(value = "JpaForumService")
 @Transactional(readOnly = true)
-public class ForumService {
+public class ForumService implements PostHierarchyRetrievalService<Post> {
 
     protected final Logger LOGGER = LoggerFactory.getLogger(getClass());
 

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * @author Vlad Mihalcea
  */
 @Repository(value = "SpringDataJdbc_NPlus1_PostRepository")
-public interface PostRepository extends CrudRepository<Post, Long> {
+public interface PostRepository extends CrudRepository<Post, Long>, CustomJdbcPostRepository {
 
 }

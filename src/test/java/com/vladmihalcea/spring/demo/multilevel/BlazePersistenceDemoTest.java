@@ -24,7 +24,7 @@ public class BlazePersistenceDemoTest extends BaseMultilevelDemoTest {
 	@Test
 	public void testMultiLevelFetchingWithMultiset() {
 		addHierarchicalData();
-		warmUpHibernateQueryPlanCache(() ->
+		warmUpPlanCache(() ->
 			forumService.findPostWithCommentsAndTagsViewByIds(1L, 50L)
 		);
 

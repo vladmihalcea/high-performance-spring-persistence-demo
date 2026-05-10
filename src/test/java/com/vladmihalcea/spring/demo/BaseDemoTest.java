@@ -88,7 +88,7 @@ public abstract class BaseDemoTest {
 		}
 	}
 
-	protected void warmUpHibernateQueryPlanCache(VoidCallable function) {
+	protected void warmUpPlanCache(VoidCallable function) {
 		function.execute();
 	}
 }

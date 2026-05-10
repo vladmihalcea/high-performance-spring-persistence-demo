@@ -1,0 +1,928 @@
+[INFO] Running com.vladmihalcea.spring.demo.benchmark.BlazePersistenceBenchmarkTest
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-LTS
+# VM invoker: C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin\java.exe
+# VM options: -XX:+EnableDynamicAgentLoading -Xms512m -Xmx1g
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 25 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.vladmihalcea.spring.demo.benchmark.BlazePersistenceBenchmarkTest.findWithCommentsAndTagsByIds
+
+# Run progress: 0.00% complete, ETA 00:01:15
+# Fork: 1 of 1
+# Warmup Iteration   1: 2026-05-12 11:20:36,384 WARN  [com.vladmihalcea.spring.demo.benchmark.BlazePersistenceBenchmarkTest.findWithCommentsAndTagsByIds-jmh-worker-1]: c.b.a.AnnotationUtils - Stereotype annotation can not be found, skipping annotation inheritance via stereotype.
+86.578 ms/op
+# Warmup Iteration   2: 28.601 ms/op
+# Warmup Iteration   3: 25.505 ms/op
+# Warmup Iteration   4: 25.445 ms/op
+# Warmup Iteration   5: 24.542 ms/op
+# Warmup Iteration   6: 24.675 ms/op
+# Warmup Iteration   7: 24.570 ms/op
+# Warmup Iteration   8: 23.442 ms/op
+# Warmup Iteration   9: 25.589 ms/op
+# Warmup Iteration  10: 23.073 ms/op
+# Warmup Iteration  11: 23.530 ms/op
+# Warmup Iteration  12: 24.973 ms/op
+# Warmup Iteration  13: 24.068 ms/op
+# Warmup Iteration  14: 22.873 ms/op
+# Warmup Iteration  15: 24.051 ms/op
+# Warmup Iteration  16: 22.850 ms/op
+# Warmup Iteration  17: 23.995 ms/op
+# Warmup Iteration  18: 22.622 ms/op
+# Warmup Iteration  19: 23.665 ms/op
+# Warmup Iteration  20: 23.352 ms/op
+# Warmup Iteration  21: 24.730 ms/op
+# Warmup Iteration  22: 22.675 ms/op
+# Warmup Iteration  23: 25.124 ms/op
+# Warmup Iteration  24: 26.361 ms/op
+# Warmup Iteration  25: 25.782 ms/op
+Iteration   1: 26.043 ms/op
+Iteration   2: 25.753 ms/op
+Iteration   3: 26.811 ms/op
+Iteration   4: 22.209 ms/op
+Iteration   5: 23.917 ms/op
+Iteration   6: 22.732 ms/op
+Iteration   7: 23.786 ms/op
+Iteration   8: 22.211 ms/op
+Iteration   9: 23.200 ms/op
+Iteration  10: 22.074 ms/op
+Iteration  11: 22.487 ms/op
+Iteration  12: 22.703 ms/op
+Iteration  13: 22.096 ms/op
+Iteration  14: 23.328 ms/op
+Iteration  15: 22.007 ms/op
+Iteration  16: 22.986 ms/op
+Iteration  17: 22.410 ms/op
+Iteration  18: 24.072 ms/op
+Iteration  19: 22.563 ms/op
+Iteration  20: 23.212 ms/op
+Iteration  21: 21.966 ms/op
+Iteration  22: 22.669 ms/op
+Iteration  23: 22.568 ms/op
+Iteration  24: 24.570 ms/op
+Iteration  25: 22.657 ms/op
+Iteration  26: 22.162 ms/op
+Iteration  27: 23.558 ms/op
+Iteration  28: 22.000 ms/op
+Iteration  29: 22.753 ms/op
+Iteration  30: 21.721 ms/op
+Iteration  31: 22.963 ms/op
+Iteration  32: 21.934 ms/op
+Iteration  33: 23.577 ms/op
+Iteration  34: 22.187 ms/op
+Iteration  35: 24.307 ms/op
+Iteration  36: 23.077 ms/op
+Iteration  37: 22.511 ms/op
+Iteration  38: 21.828 ms/op
+Iteration  39: 21.960 ms/op
+Iteration  40: 22.222 ms/op
+Iteration  41: 21.654 ms/op
+Iteration  42: 26.299 ms/op
+Iteration  43: 26.178 ms/op
+Iteration  44: 27.563 ms/op
+Iteration  45: 24.370 ms/op
+Iteration  46: 24.917 ms/op
+Iteration  47: 40.560 ms/op
+Iteration  48: 39.519 ms/op
+Iteration  49: 24.270 ms/op
+Iteration  50: 23.659 ms/op
+
+
+Result "com.vladmihalcea.spring.demo.benchmark.BlazePersistenceBenchmarkTest.findWithCommentsAndTagsByIds":
+  23.976 ┬▒(99.9%) 1.787 ms/op [Average]
+  (min, avg, max) = (21.654, 23.976, 40.560), stdev = 3.610
+  CI (99.9%): [22.188, 25.763] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:28
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                                   Mode  Cnt   Score   Error  Units
+BlazePersistenceBenchmarkTest.findWithCommentsAndTagsByIds  avgt   50  23.976 ┬▒ 1.787  ms/op
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 89.53 s -- in com.vladmihalcea.spring.demo.benchmark.BlazePersistenceBenchmarkTest
+[INFO] Running com.vladmihalcea.spring.demo.benchmark.JdbcBenchmarkTest
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-LTS
+# VM invoker: C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin\java.exe
+# VM options: -XX:+EnableDynamicAgentLoading -Xms512m -Xmx1g
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 25 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.vladmihalcea.spring.demo.benchmark.JdbcBenchmarkTest.findWithCommentsAndTagsByIds
+
+# Run progress: 0.00% complete, ETA 00:01:15
+# Fork: 1 of 1
+# Warmup Iteration   1: 2026-05-12 11:22:04,944 WARN  [com.vladmihalcea.spring.demo.benchmark.JdbcBenchmarkTest.findWithCommentsAndTagsByIds-jmh-worker-1]: c.b.a.AnnotationUtils - Stereotype annotation can not be found, skipping annotation inheritance via stereotype.
+20.007 ms/op
+# Warmup Iteration   2: 17.035 ms/op
+# Warmup Iteration   3: 15.873 ms/op
+# Warmup Iteration   4: 16.034 ms/op
+# Warmup Iteration   5: 16.681 ms/op
+# Warmup Iteration   6: 14.665 ms/op
+# Warmup Iteration   7: 14.250 ms/op
+# Warmup Iteration   8: 14.068 ms/op
+# Warmup Iteration   9: 13.887 ms/op
+# Warmup Iteration  10: 13.864 ms/op
+# Warmup Iteration  11: 15.082 ms/op
+# Warmup Iteration  12: 13.443 ms/op
+# Warmup Iteration  13: 13.904 ms/op
+# Warmup Iteration  14: 13.148 ms/op
+# Warmup Iteration  15: 13.735 ms/op
+# Warmup Iteration  16: 13.231 ms/op
+# Warmup Iteration  17: 13.423 ms/op
+# Warmup Iteration  18: 13.413 ms/op
+# Warmup Iteration  19: 13.198 ms/op
+# Warmup Iteration  20: 13.914 ms/op
+# Warmup Iteration  21: 13.006 ms/op
+# Warmup Iteration  22: 13.328 ms/op
+# Warmup Iteration  23: 13.017 ms/op
+# Warmup Iteration  24: 13.381 ms/op
+# Warmup Iteration  25: 13.053 ms/op
+Iteration   1: 13.457 ms/op
+Iteration   2: 12.913 ms/op
+Iteration   3: 13.263 ms/op
+Iteration   4: 12.998 ms/op
+Iteration   5: 13.213 ms/op
+Iteration   6: 13.414 ms/op
+Iteration   7: 13.081 ms/op
+Iteration   8: 13.519 ms/op
+Iteration   9: 12.936 ms/op
+Iteration  10: 13.581 ms/op
+Iteration  11: 13.154 ms/op
+Iteration  12: 14.173 ms/op
+Iteration  13: 13.608 ms/op
+Iteration  14: 13.627 ms/op
+Iteration  15: 12.959 ms/op
+Iteration  16: 13.259 ms/op
+Iteration  17: 12.862 ms/op
+Iteration  18: 13.593 ms/op
+Iteration  19: 14.116 ms/op
+Iteration  20: 12.958 ms/op
+Iteration  21: 13.319 ms/op
+Iteration  22: 13.152 ms/op
+Iteration  23: 13.218 ms/op
+Iteration  24: 12.830 ms/op
+Iteration  25: 13.140 ms/op
+Iteration  26: 12.831 ms/op
+Iteration  27: 13.662 ms/op
+Iteration  28: 12.886 ms/op
+Iteration  29: 13.186 ms/op
+Iteration  30: 12.910 ms/op
+Iteration  31: 12.904 ms/op
+Iteration  32: 13.181 ms/op
+Iteration  33: 12.885 ms/op
+Iteration  34: 13.381 ms/op
+Iteration  35: 12.786 ms/op
+Iteration  36: 13.383 ms/op
+Iteration  37: 12.830 ms/op
+Iteration  38: 13.252 ms/op
+Iteration  39: 12.841 ms/op
+Iteration  40: 13.369 ms/op
+Iteration  41: 15.551 ms/op
+Iteration  42: 15.945 ms/op
+Iteration  43: 14.607 ms/op
+Iteration  44: 15.949 ms/op
+Iteration  45: 14.840 ms/op
+Iteration  46: 13.485 ms/op
+Iteration  47: 13.580 ms/op
+Iteration  48: 13.571 ms/op
+Iteration  49: 14.639 ms/op
+Iteration  50: 13.161 ms/op
+
+
+Result "com.vladmihalcea.spring.demo.benchmark.JdbcBenchmarkTest.findWithCommentsAndTagsByIds":
+  13.479 ┬▒(99.9%) 0.376 ms/op [Average]
+  (min, avg, max) = (12.786, 13.479, 15.949), stdev = 0.760
+  CI (99.9%): [13.103, 13.856] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:27
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                       Mode  Cnt   Score   Error  Units
+JdbcBenchmarkTest.findWithCommentsAndTagsByIds  avgt   50  13.479 ┬▒ 0.376  ms/op
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 87.56 s -- in com.vladmihalcea.spring.demo.benchmark.JdbcBenchmarkTest
+[INFO] Running com.vladmihalcea.spring.demo.benchmark.JdbcTemplateBenchmarkTest
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-LTS
+# VM invoker: C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin\java.exe
+# VM options: -XX:+EnableDynamicAgentLoading -Xms512m -Xmx1g
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 25 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.vladmihalcea.spring.demo.benchmark.JdbcTemplateBenchmarkTest.findWithCommentsAndTagsByIds
+
+# Run progress: 0.00% complete, ETA 00:01:15
+# Fork: 1 of 1
+# Warmup Iteration   1: 2026-05-12 11:23:32,579 WARN  [com.vladmihalcea.spring.demo.benchmark.JdbcTemplateBenchmarkTest.findWithCommentsAndTagsByIds-jmh-worker-1]: c.b.a.AnnotationUtils - Stereotype annotation can not be found, skipping annotation inheritance via stereotype.
+435.862 ms/op
+# Warmup Iteration   2: 370.312 ms/op
+# Warmup Iteration   3: 356.410 ms/op
+# Warmup Iteration   4: 486.157 ms/op
+# Warmup Iteration   5: 453.580 ms/op
+# Warmup Iteration   6: 468.431 ms/op
+# Warmup Iteration   7: 479.679 ms/op
+# Warmup Iteration   8: 457.640 ms/op
+# Warmup Iteration   9: 473.402 ms/op
+# Warmup Iteration  10: 449.545 ms/op
+# Warmup Iteration  11: 469.467 ms/op
+# Warmup Iteration  12: 488.153 ms/op
+# Warmup Iteration  13: 457.408 ms/op
+# Warmup Iteration  14: 522.486 ms/op
+# Warmup Iteration  15: 538.091 ms/op
+# Warmup Iteration  16: 555.337 ms/op
+# Warmup Iteration  17: 1213.804 ms/op
+# Warmup Iteration  18: 524.030 ms/op
+# Warmup Iteration  19: 496.556 ms/op
+# Warmup Iteration  20: 465.207 ms/op
+# Warmup Iteration  21: 471.157 ms/op
+# Warmup Iteration  22: 465.729 ms/op
+# Warmup Iteration  23: 449.131 ms/op
+# Warmup Iteration  24: 465.732 ms/op
+# Warmup Iteration  25: 466.930 ms/op
+Iteration   1: 455.714 ms/op
+Iteration   2: 463.491 ms/op
+Iteration   3: 448.794 ms/op
+Iteration   4: 467.346 ms/op
+Iteration   5: 468.325 ms/op
+Iteration   6: 453.526 ms/op
+Iteration   7: 476.246 ms/op
+Iteration   8: 462.220 ms/op
+Iteration   9: 559.772 ms/op
+Iteration  10: 575.581 ms/op
+Iteration  11: 570.971 ms/op
+Iteration  12: 551.987 ms/op
+Iteration  13: 475.449 ms/op
+Iteration  14: 480.772 ms/op
+Iteration  15: 478.734 ms/op
+Iteration  16: 471.783 ms/op
+Iteration  17: 488.457 ms/op
+Iteration  18: 469.251 ms/op
+Iteration  19: 514.045 ms/op
+Iteration  20: 505.444 ms/op
+Iteration  21: 469.110 ms/op
+Iteration  22: 470.242 ms/op
+Iteration  23: 467.424 ms/op
+Iteration  24: 452.481 ms/op
+Iteration  25: 459.858 ms/op
+Iteration  26: 468.579 ms/op
+Iteration  27: 451.936 ms/op
+Iteration  28: 461.133 ms/op
+Iteration  29: 447.470 ms/op
+Iteration  30: 468.159 ms/op
+Iteration  31: 466.712 ms/op
+Iteration  32: 480.300 ms/op
+Iteration  33: 465.153 ms/op
+Iteration  34: 471.554 ms/op
+Iteration  35: 458.039 ms/op
+Iteration  36: 456.464 ms/op
+Iteration  37: 472.172 ms/op
+Iteration  38: 462.639 ms/op
+Iteration  39: 467.025 ms/op
+Iteration  40: 447.047 ms/op
+Iteration  41: 468.364 ms/op
+Iteration  42: 461.107 ms/op
+Iteration  43: 470.499 ms/op
+Iteration  44: 468.379 ms/op
+Iteration  45: 469.429 ms/op
+Iteration  46: 449.774 ms/op
+Iteration  47: 457.734 ms/op
+Iteration  48: 471.353 ms/op
+Iteration  49: 444.814 ms/op
+Iteration  50: 458.106 ms/op
+
+
+Result "com.vladmihalcea.spring.demo.benchmark.JdbcTemplateBenchmarkTest.findWithCommentsAndTagsByIds":
+  474.419 ┬▒(99.9%) 14.802 ms/op [Average]
+  (min, avg, max) = (444.814, 474.419, 575.581), stdev = 29.900
+  CI (99.9%): [459.617, 489.221] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:53
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                               Mode  Cnt    Score    Error  Units
+JdbcTemplateBenchmarkTest.findWithCommentsAndTagsByIds  avgt   50  474.419 ┬▒ 14.802  ms/op
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 113.3 s -- in com.vladmihalcea.spring.demo.benchmark.JdbcTemplateBenchmarkTest
+[INFO] Running com.vladmihalcea.spring.demo.benchmark.JooqBenchmarkTest
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-LTS
+# VM invoker: C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin\java.exe
+# VM options: -XX:+EnableDynamicAgentLoading -Xms512m -Xmx1g
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 25 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.vladmihalcea.spring.demo.benchmark.JooqBenchmarkTest.findWithCommentsAndTagsByIds
+
+# Run progress: 0.00% complete, ETA 00:01:15
+# Fork: 1 of 1
+# Warmup Iteration   1: 2026-05-12 11:25:26,047 WARN  [com.vladmihalcea.spring.demo.benchmark.JooqBenchmarkTest.findWithCommentsAndTagsByIds-jmh-worker-1]: c.b.a.AnnotationUtils - Stereotype annotation can not be found, skipping annotation inheritance via stereotype.
+347.035 ms/op
+# Warmup Iteration   2: 60.260 ms/op
+# Warmup Iteration   3: 55.596 ms/op
+# Warmup Iteration   4: 54.397 ms/op
+# Warmup Iteration   5: 56.209 ms/op
+# Warmup Iteration   6: 55.915 ms/op
+# Warmup Iteration   7: 62.448 ms/op
+# Warmup Iteration   8: 55.335 ms/op
+# Warmup Iteration   9: 55.050 ms/op
+# Warmup Iteration  10: 52.303 ms/op
+# Warmup Iteration  11: 52.195 ms/op
+# Warmup Iteration  12: 51.445 ms/op
+# Warmup Iteration  13: 56.938 ms/op
+# Warmup Iteration  14: 54.331 ms/op
+# Warmup Iteration  15: 52.525 ms/op
+# Warmup Iteration  16: 52.047 ms/op
+# Warmup Iteration  17: 49.914 ms/op
+# Warmup Iteration  18: 52.474 ms/op
+# Warmup Iteration  19: 56.586 ms/op
+# Warmup Iteration  20: 52.240 ms/op
+# Warmup Iteration  21: 52.180 ms/op
+# Warmup Iteration  22: 58.276 ms/op
+# Warmup Iteration  23: 49.701 ms/op
+# Warmup Iteration  24: 51.263 ms/op
+# Warmup Iteration  25: 54.575 ms/op
+Iteration   1: 53.712 ms/op
+Iteration   2: 53.252 ms/op
+Iteration   3: 49.538 ms/op
+Iteration   4: 53.370 ms/op
+Iteration   5: 49.832 ms/op
+Iteration   6: 52.819 ms/op
+Iteration   7: 55.254 ms/op
+Iteration   8: 51.574 ms/op
+Iteration   9: 51.922 ms/op
+Iteration  10: 51.091 ms/op
+Iteration  11: 49.480 ms/op
+Iteration  12: 50.566 ms/op
+Iteration  13: 49.377 ms/op
+Iteration  14: 51.785 ms/op
+Iteration  15: 51.836 ms/op
+Iteration  16: 50.785 ms/op
+Iteration  17: 51.126 ms/op
+Iteration  18: 50.792 ms/op
+Iteration  19: 48.720 ms/op
+Iteration  20: 50.296 ms/op
+Iteration  21: 49.178 ms/op
+Iteration  22: 49.282 ms/op
+Iteration  23: 59.483 ms/op
+Iteration  24: 49.734 ms/op
+Iteration  25: 55.099 ms/op
+Iteration  26: 48.783 ms/op
+Iteration  27: 54.024 ms/op
+Iteration  28: 50.573 ms/op
+Iteration  29: 54.335 ms/op
+Iteration  30: 49.121 ms/op
+Iteration  31: 51.246 ms/op
+Iteration  32: 48.563 ms/op
+Iteration  33: 50.790 ms/op
+Iteration  34: 48.685 ms/op
+Iteration  35: 55.462 ms/op
+Iteration  36: 66.428 ms/op
+Iteration  37: 66.182 ms/op
+Iteration  38: 59.566 ms/op
+Iteration  39: 54.258 ms/op
+Iteration  40: 59.909 ms/op
+Iteration  41: 51.747 ms/op
+Iteration  42: 54.695 ms/op
+Iteration  43: 51.828 ms/op
+Iteration  44: 55.301 ms/op
+Iteration  45: 51.031 ms/op
+Iteration  46: 60.670 ms/op
+Iteration  47: 50.936 ms/op
+Iteration  48: 59.739 ms/op
+Iteration  49: 48.874 ms/op
+Iteration  50: 55.691 ms/op
+
+
+Result "com.vladmihalcea.spring.demo.benchmark.JooqBenchmarkTest.findWithCommentsAndTagsByIds":
+  52.967 ┬▒(99.9%) 2.100 ms/op [Average]
+  (min, avg, max) = (48.563, 52.967, 66.428), stdev = 4.241
+  CI (99.9%): [50.867, 55.066] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:29
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                       Mode  Cnt   Score   Error  Units
+JooqBenchmarkTest.findWithCommentsAndTagsByIds  avgt   50  52.967 ┬▒ 2.100  ms/op
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 89.73 s -- in com.vladmihalcea.spring.demo.benchmark.JooqBenchmarkTest
+[INFO] Running com.vladmihalcea.spring.demo.benchmark.JooqMultiQueryBenchmarkTest
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-LTS
+# VM invoker: C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin\java.exe
+# VM options: -XX:+EnableDynamicAgentLoading -Xms512m -Xmx1g
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 25 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.vladmihalcea.spring.demo.benchmark.JooqMultiQueryBenchmarkTest.findWithCommentsAndTagsByIds
+
+# Run progress: 0.00% complete, ETA 00:01:15
+# Fork: 1 of 1
+# Warmup Iteration   1: 2026-05-12 11:26:55,909 WARN  [com.vladmihalcea.spring.demo.benchmark.JooqMultiQueryBenchmarkTest.findWithCommentsAndTagsByIds-jmh-worker-1]: c.b.a.AnnotationUtils - Stereotype annotation can not be found, skipping annotation inheritance via stereotype.
+79.175 ms/op
+# Warmup Iteration   2: 22.233 ms/op
+# Warmup Iteration   3: 20.759 ms/op
+# Warmup Iteration   4: 20.912 ms/op
+# Warmup Iteration   5: 19.800 ms/op
+# Warmup Iteration   6: 20.298 ms/op
+# Warmup Iteration   7: 18.931 ms/op
+# Warmup Iteration   8: 19.532 ms/op
+# Warmup Iteration   9: 19.760 ms/op
+# Warmup Iteration  10: 20.297 ms/op
+# Warmup Iteration  11: 20.619 ms/op
+# Warmup Iteration  12: 18.437 ms/op
+# Warmup Iteration  13: 19.850 ms/op
+# Warmup Iteration  14: 18.371 ms/op
+# Warmup Iteration  15: 19.429 ms/op
+# Warmup Iteration  16: 19.344 ms/op
+# Warmup Iteration  17: 18.848 ms/op
+# Warmup Iteration  18: 18.985 ms/op
+# Warmup Iteration  19: 18.884 ms/op
+# Warmup Iteration  20: 18.136 ms/op
+# Warmup Iteration  21: 18.703 ms/op
+# Warmup Iteration  22: 18.159 ms/op
+# Warmup Iteration  23: 18.093 ms/op
+# Warmup Iteration  24: 18.946 ms/op
+# Warmup Iteration  25: 17.919 ms/op
+Iteration   1: 20.404 ms/op
+Iteration   2: 18.254 ms/op
+Iteration   3: 19.629 ms/op
+Iteration   4: 17.991 ms/op
+Iteration   5: 20.560 ms/op
+Iteration   6: 18.233 ms/op
+Iteration   7: 19.859 ms/op
+Iteration   8: 18.524 ms/op
+Iteration   9: 19.131 ms/op
+Iteration  10: 18.719 ms/op
+Iteration  11: 18.258 ms/op
+Iteration  12: 18.763 ms/op
+Iteration  13: 18.552 ms/op
+Iteration  14: 23.390 ms/op
+Iteration  15: 20.285 ms/op
+Iteration  16: 22.428 ms/op
+Iteration  17: 20.760 ms/op
+Iteration  18: 19.989 ms/op
+Iteration  19: 17.706 ms/op
+Iteration  20: 19.480 ms/op
+Iteration  21: 18.244 ms/op
+Iteration  22: 20.054 ms/op
+Iteration  23: 18.370 ms/op
+Iteration  24: 18.427 ms/op
+Iteration  25: 19.111 ms/op
+Iteration  26: 18.922 ms/op
+Iteration  27: 20.548 ms/op
+Iteration  28: 18.433 ms/op
+Iteration  29: 18.476 ms/op
+Iteration  30: 17.725 ms/op
+Iteration  31: 20.080 ms/op
+Iteration  32: 17.873 ms/op
+Iteration  33: 18.931 ms/op
+Iteration  34: 17.611 ms/op
+Iteration  35: 19.325 ms/op
+Iteration  36: 18.700 ms/op
+Iteration  37: 18.412 ms/op
+Iteration  38: 18.817 ms/op
+Iteration  39: 18.410 ms/op
+Iteration  40: 18.524 ms/op
+Iteration  41: 17.688 ms/op
+Iteration  42: 19.632 ms/op
+Iteration  43: 17.968 ms/op
+Iteration  44: 19.074 ms/op
+Iteration  45: 17.675 ms/op
+Iteration  46: 18.467 ms/op
+Iteration  47: 17.597 ms/op
+Iteration  48: 20.449 ms/op
+Iteration  49: 18.091 ms/op
+Iteration  50: 18.837 ms/op
+
+
+Result "com.vladmihalcea.spring.demo.benchmark.JooqMultiQueryBenchmarkTest.findWithCommentsAndTagsByIds":
+  19.028 ┬▒(99.9%) 0.592 ms/op [Average]
+  (min, avg, max) = (17.597, 19.028, 23.390), stdev = 1.197
+  CI (99.9%): [18.435, 19.620] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:28
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                                 Mode  Cnt   Score   Error  Units
+JooqMultiQueryBenchmarkTest.findWithCommentsAndTagsByIds  avgt   50  19.028 ┬▒ 0.592  ms/op
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 88.26 s -- in com.vladmihalcea.spring.demo.benchmark.JooqMultiQueryBenchmarkTest
+[INFO] Running com.vladmihalcea.spring.demo.benchmark.JpaBenchmarkTest
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-LTS
+# VM invoker: C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin\java.exe
+# VM options: -XX:+EnableDynamicAgentLoading -Xms512m -Xmx1g
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 25 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.vladmihalcea.spring.demo.benchmark.JpaBenchmarkTest.findWithCommentsAndTagsByIds
+
+# Run progress: 0.00% complete, ETA 00:01:15
+# Fork: 1 of 1
+# Warmup Iteration   1: 2026-05-12 11:28:24,070 WARN  [com.vladmihalcea.spring.demo.benchmark.JpaBenchmarkTest.findWithCommentsAndTagsByIds-jmh-worker-1]: c.b.a.AnnotationUtils - Stereotype annotation can not be found, skipping annotation inheritance via stereotype.
+84.455 ms/op
+# Warmup Iteration   2: 29.108 ms/op
+# Warmup Iteration   3: 26.476 ms/op
+# Warmup Iteration   4: 26.224 ms/op
+# Warmup Iteration   5: 25.835 ms/op
+# Warmup Iteration   6: 25.789 ms/op
+# Warmup Iteration   7: 23.543 ms/op
+# Warmup Iteration   8: 27.556 ms/op
+# Warmup Iteration   9: 23.628 ms/op
+# Warmup Iteration  10: 24.325 ms/op
+# Warmup Iteration  11: 25.167 ms/op
+# Warmup Iteration  12: 24.183 ms/op
+# Warmup Iteration  13: 24.785 ms/op
+# Warmup Iteration  14: 23.962 ms/op
+# Warmup Iteration  15: 24.221 ms/op
+# Warmup Iteration  16: 22.691 ms/op
+# Warmup Iteration  17: 28.301 ms/op
+# Warmup Iteration  18: 25.957 ms/op
+# Warmup Iteration  19: 26.832 ms/op
+# Warmup Iteration  20: 25.529 ms/op
+# Warmup Iteration  21: 28.524 ms/op
+# Warmup Iteration  22: 25.717 ms/op
+# Warmup Iteration  23: 23.299 ms/op
+# Warmup Iteration  24: 25.099 ms/op
+# Warmup Iteration  25: 23.834 ms/op
+Iteration   1: 25.578 ms/op
+Iteration   2: 23.418 ms/op
+Iteration   3: 25.795 ms/op
+Iteration   4: 23.980 ms/op
+Iteration   5: 23.360 ms/op
+Iteration   6: 22.475 ms/op
+Iteration   7: 24.491 ms/op
+Iteration   8: 23.376 ms/op
+Iteration   9: 24.383 ms/op
+Iteration  10: 22.057 ms/op
+Iteration  11: 23.764 ms/op
+Iteration  12: 22.394 ms/op
+Iteration  13: 22.516 ms/op
+Iteration  14: 24.500 ms/op
+Iteration  15: 22.784 ms/op
+Iteration  16: 23.321 ms/op
+Iteration  17: 22.067 ms/op
+Iteration  18: 23.661 ms/op
+Iteration  19: 22.484 ms/op
+Iteration  20: 24.405 ms/op
+Iteration  21: 22.361 ms/op
+Iteration  22: 22.929 ms/op
+Iteration  23: 21.976 ms/op
+Iteration  24: 22.725 ms/op
+Iteration  25: 21.826 ms/op
+Iteration  26: 22.824 ms/op
+Iteration  27: 23.195 ms/op
+Iteration  28: 21.728 ms/op
+Iteration  29: 22.859 ms/op
+Iteration  30: 23.592 ms/op
+Iteration  31: 23.445 ms/op
+Iteration  32: 23.013 ms/op
+Iteration  33: 22.794 ms/op
+Iteration  34: 23.226 ms/op
+Iteration  35: 23.101 ms/op
+Iteration  36: 22.750 ms/op
+Iteration  37: 22.713 ms/op
+Iteration  38: 22.849 ms/op
+Iteration  39: 22.810 ms/op
+Iteration  40: 22.632 ms/op
+Iteration  41: 21.685 ms/op
+Iteration  42: 22.524 ms/op
+Iteration  43: 21.837 ms/op
+Iteration  44: 22.514 ms/op
+Iteration  45: 21.592 ms/op
+Iteration  46: 23.710 ms/op
+Iteration  47: 22.540 ms/op
+Iteration  48: 23.485 ms/op
+Iteration  49: 21.564 ms/op
+Iteration  50: 22.464 ms/op
+
+
+Result "com.vladmihalcea.spring.demo.benchmark.JpaBenchmarkTest.findWithCommentsAndTagsByIds":
+  23.002 ┬▒(99.9%) 0.462 ms/op [Average]
+  (min, avg, max) = (21.564, 23.002, 25.795), stdev = 0.934
+  CI (99.9%): [22.539, 23.464] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:28
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                      Mode  Cnt   Score   Error  Units
+JpaBenchmarkTest.findWithCommentsAndTagsByIds  avgt   50  23.002 ┬▒ 0.462  ms/op
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 88.29 s -- in com.vladmihalcea.spring.demo.benchmark.JpaBenchmarkTest
+[INFO] Running com.vladmihalcea.spring.demo.benchmark.SpringDataJdbcNPlus1BenchmarkTest
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-LTS
+# VM invoker: C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin\java.exe
+# VM options: -XX:+EnableDynamicAgentLoading -Xms512m -Xmx1g
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 25 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.vladmihalcea.spring.demo.benchmark.SpringDataJdbcNPlus1BenchmarkTest.findWithCommentsAndTagsByIds
+
+# Run progress: 0.00% complete, ETA 00:01:15
+# Fork: 1 of 1
+# Warmup Iteration   1: 2026-05-12 11:29:52,695 WARN  [com.vladmihalcea.spring.demo.benchmark.SpringDataJdbcNPlus1BenchmarkTest.findWithCommentsAndTagsByIds-jmh-worker-1]: c.b.a.AnnotationUtils - Stereotype annotation can not be found, skipping annotation inheritance via stereotype.
+1572.754 ms/op
+# Warmup Iteration   2: 646.490 ms/op
+# Warmup Iteration   3: 547.024 ms/op
+# Warmup Iteration   4: 516.338 ms/op
+# Warmup Iteration   5: 446.751 ms/op
+# Warmup Iteration   6: 370.451 ms/op
+# Warmup Iteration   7: 354.474 ms/op
+# Warmup Iteration   8: 341.559 ms/op
+# Warmup Iteration   9: 353.214 ms/op
+# Warmup Iteration  10: 350.597 ms/op
+# Warmup Iteration  11: 367.962 ms/op
+# Warmup Iteration  12: 336.910 ms/op
+# Warmup Iteration  13: 352.787 ms/op
+# Warmup Iteration  14: 338.986 ms/op
+# Warmup Iteration  15: 344.024 ms/op
+# Warmup Iteration  16: 339.486 ms/op
+# Warmup Iteration  17: 368.514 ms/op
+# Warmup Iteration  18: 339.338 ms/op
+# Warmup Iteration  19: 351.477 ms/op
+# Warmup Iteration  20: 344.535 ms/op
+# Warmup Iteration  21: 348.567 ms/op
+# Warmup Iteration  22: 336.348 ms/op
+# Warmup Iteration  23: 345.180 ms/op
+# Warmup Iteration  24: 340.617 ms/op
+# Warmup Iteration  25: 341.934 ms/op
+Iteration   1: 341.133 ms/op
+Iteration   2: 352.568 ms/op
+Iteration   3: 334.245 ms/op
+Iteration   4: 354.512 ms/op
+Iteration   5: 336.385 ms/op
+Iteration   6: 350.289 ms/op
+Iteration   7: 342.094 ms/op
+Iteration   8: 356.322 ms/op
+Iteration   9: 331.227 ms/op
+Iteration  10: 342.594 ms/op
+Iteration  11: 334.944 ms/op
+Iteration  12: 356.911 ms/op
+Iteration  13: 334.765 ms/op
+Iteration  14: 347.107 ms/op
+Iteration  15: 335.156 ms/op
+Iteration  16: 361.716 ms/op
+Iteration  17: 342.239 ms/op
+Iteration  18: 355.863 ms/op
+Iteration  19: 335.316 ms/op
+Iteration  20: 346.602 ms/op
+Iteration  21: 336.790 ms/op
+Iteration  22: 348.717 ms/op
+Iteration  23: 333.104 ms/op
+Iteration  24: 344.931 ms/op
+Iteration  25: 356.158 ms/op
+Iteration  26: 343.301 ms/op
+Iteration  27: 339.147 ms/op
+Iteration  28: 348.410 ms/op
+Iteration  29: 414.791 ms/op
+Iteration  30: 380.493 ms/op
+Iteration  31: 417.297 ms/op
+Iteration  32: 411.496 ms/op
+Iteration  33: 362.450 ms/op
+Iteration  34: 347.848 ms/op
+Iteration  35: 336.990 ms/op
+Iteration  36: 347.932 ms/op
+Iteration  37: 339.401 ms/op
+Iteration  38: 351.312 ms/op
+Iteration  39: 363.567 ms/op
+Iteration  40: 360.620 ms/op
+Iteration  41: 346.269 ms/op
+Iteration  42: 363.839 ms/op
+Iteration  43: 329.162 ms/op
+Iteration  44: 347.105 ms/op
+Iteration  45: 343.390 ms/op
+Iteration  46: 347.059 ms/op
+Iteration  47: 347.715 ms/op
+Iteration  48: 346.975 ms/op
+Iteration  49: 338.477 ms/op
+Iteration  50: 345.699 ms/op
+
+
+Result "com.vladmihalcea.spring.demo.benchmark.SpringDataJdbcNPlus1BenchmarkTest.findWithCommentsAndTagsByIds":
+  350.649 ┬▒(99.9%) 9.478 ms/op [Average]
+  (min, avg, max) = (329.162, 350.649, 417.297), stdev = 19.146
+  CI (99.9%): [341.171, 360.126] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:35
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                                       Mode  Cnt    Score   Error  Units
+SpringDataJdbcNPlus1BenchmarkTest.findWithCommentsAndTagsByIds  avgt   50  350.649 ┬▒ 9.478  ms/op
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 95.12 s -- in com.vladmihalcea.spring.demo.benchmark.SpringDataJdbcNPlus1BenchmarkTest
+[INFO] Running com.vladmihalcea.spring.demo.benchmark.SpringDataJdbcSingleQueryLoadingBenchmarkTest
+# JMH version: 1.37
+# VM version: JDK 21.0.4, OpenJDK 64-Bit Server VM, 21.0.4+7-LTS
+# VM invoker: C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot\bin\java.exe
+# VM options: -XX:+EnableDynamicAgentLoading -Xms512m -Xmx1g
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 25 iterations, 1 s each
+# Measurement: 50 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.vladmihalcea.spring.demo.benchmark.SpringDataJdbcSingleQueryLoadingBenchmarkTest.findWithCommentsAndTagsByIds
+
+# Run progress: 0.00% complete, ETA 00:01:15
+# Fork: 1 of 1
+# Warmup Iteration   1: 2026-05-12 11:31:27,305 WARN  [com.vladmihalcea.spring.demo.benchmark.SpringDataJdbcSingleQueryLoadingBenchmarkTest.findWithCommentsAndTagsByIds-jmh-worker-1]: c.b.a.AnnotationUtils - Stereotype annotation can not be found, skipping annotation inheritance via stereotype.
+79.845 ms/op
+# Warmup Iteration   2: 34.915 ms/op
+# Warmup Iteration   3: 25.816 ms/op
+# Warmup Iteration   4: 25.098 ms/op
+# Warmup Iteration   5: 22.683 ms/op
+# Warmup Iteration   6: 23.924 ms/op
+# Warmup Iteration   7: 21.973 ms/op
+# Warmup Iteration   8: 22.495 ms/op
+# Warmup Iteration   9: 21.918 ms/op
+# Warmup Iteration  10: 22.585 ms/op
+# Warmup Iteration  11: 22.647 ms/op
+# Warmup Iteration  12: 21.481 ms/op
+# Warmup Iteration  13: 21.969 ms/op
+# Warmup Iteration  14: 21.132 ms/op
+# Warmup Iteration  15: 22.259 ms/op
+# Warmup Iteration  16: 21.053 ms/op
+# Warmup Iteration  17: 21.741 ms/op
+# Warmup Iteration  18: 21.375 ms/op
+# Warmup Iteration  19: 22.388 ms/op
+# Warmup Iteration  20: 21.019 ms/op
+# Warmup Iteration  21: 24.064 ms/op
+# Warmup Iteration  22: 21.726 ms/op
+# Warmup Iteration  23: 20.836 ms/op
+# Warmup Iteration  24: 21.562 ms/op
+# Warmup Iteration  25: 21.007 ms/op
+Iteration   1: 22.160 ms/op
+Iteration   2: 20.663 ms/op
+Iteration   3: 21.239 ms/op
+Iteration   4: 20.616 ms/op
+Iteration   5: 25.025 ms/op
+Iteration   6: 24.864 ms/op
+Iteration   7: 25.274 ms/op
+Iteration   8: 24.753 ms/op
+Iteration   9: 25.391 ms/op
+Iteration  10: 21.582 ms/op
+Iteration  11: 21.197 ms/op
+Iteration  12: 20.955 ms/op
+Iteration  13: 25.987 ms/op
+Iteration  14: 24.533 ms/op
+Iteration  15: 21.388 ms/op
+Iteration  16: 22.649 ms/op
+Iteration  17: 21.013 ms/op
+Iteration  18: 21.876 ms/op
+Iteration  19: 21.058 ms/op
+Iteration  20: 21.360 ms/op
+Iteration  21: 21.135 ms/op
+Iteration  22: 21.109 ms/op
+Iteration  23: 20.381 ms/op
+Iteration  24: 21.610 ms/op
+Iteration  25: 20.488 ms/op
+Iteration  26: 21.002 ms/op
+Iteration  27: 20.549 ms/op
+Iteration  28: 20.665 ms/op
+Iteration  29: 21.736 ms/op
+Iteration  30: 20.723 ms/op
+Iteration  31: 21.271 ms/op
+Iteration  32: 20.362 ms/op
+Iteration  33: 21.315 ms/op
+Iteration  34: 20.430 ms/op
+Iteration  35: 21.233 ms/op
+Iteration  36: 20.261 ms/op
+Iteration  37: 21.268 ms/op
+Iteration  38: 20.066 ms/op
+Iteration  39: 21.250 ms/op
+Iteration  40: 20.256 ms/op
+Iteration  41: 21.245 ms/op
+Iteration  42: 20.743 ms/op
+Iteration  43: 20.669 ms/op
+Iteration  44: 21.752 ms/op
+Iteration  45: 21.874 ms/op
+Iteration  46: 21.265 ms/op
+Iteration  47: 20.212 ms/op
+Iteration  48: 21.586 ms/op
+Iteration  49: 20.148 ms/op
+Iteration  50: 20.642 ms/op
+
+
+Result "com.vladmihalcea.spring.demo.benchmark.SpringDataJdbcSingleQueryLoadingBenchmarkTest.findWithCommentsAndTagsByIds":
+  21.617 ┬▒(99.9%) 0.760 ms/op [Average]
+  (min, avg, max) = (20.066, 21.617, 25.987), stdev = 1.535
+  CI (99.9%): [20.857, 22.376] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:28
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                                                   Mode  Cnt   Score   Error  Units
+SpringDataJdbcSingleQueryLoadingBenchmarkTest.findWithCommentsAndTagsByIds  avgt   50  21.617 ┬▒ 0.760  ms/op
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 88.10 s -- in com.vladmihalcea.spring.demo.benchmark.SpringDataJdbcSingleQueryLoadingBenchmarkTest

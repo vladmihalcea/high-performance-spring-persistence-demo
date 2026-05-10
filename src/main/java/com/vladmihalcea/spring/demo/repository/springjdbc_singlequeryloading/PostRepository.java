@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * @author Vlad Mihalcea
  */
 @Repository(value = "SpringDataJdbc_SingleQueryLoading_PostRepository")
-public interface PostRepository extends CrudRepository<Post, Long> {
+public interface PostRepository extends CrudRepository<Post, Long>, CustomJdbcSingleQueryLoadingPostRepository {
 
 }

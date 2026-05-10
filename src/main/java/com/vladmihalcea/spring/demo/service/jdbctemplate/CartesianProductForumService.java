@@ -1,6 +1,7 @@
 package com.vladmihalcea.spring.demo.service.jdbctemplate;
 
 import com.vladmihalcea.spring.demo.domain.jdbctemplate.*;
+import com.vladmihalcea.spring.demo.service.PostHierarchyRetrievalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,20 +11,23 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Vlad Mihalcea
  */
-@Service(value = "JdbcTemplateForumService")
+@Service(value = "JdbcTemplateCartesianProductForumService")
 @Transactional(readOnly = true)
-public class ForumService {
+public class CartesianProductForumService implements PostHierarchyRetrievalService<Post> {
 
     protected final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     private final JdbcTemplate jdbcTemplate;
 
-    public ForumService(JdbcTemplate jdbcTemplate) {
+    public CartesianProductForumService(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

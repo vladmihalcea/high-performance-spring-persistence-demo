@@ -1,7 +1,11 @@
 package com.vladmihalcea.spring.demo.domain.springjdbc_singlequeryloading;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Table;
+
+import java.util.Collections;
+import java.util.Set;
 
 /**
  * @author Vlad Mihalcea
@@ -15,11 +19,11 @@ public class PostComment {
     private String review;
 
     /**
-     * Nested references are not supported by single-query fetch
-     * @see org.springframework.data.jdbc.core.convert.SingleQueryFallbackDataAccessStrategy#entityQualifiesForSingleQueryLoading
-    @MappedCollection(idColumn = "comment_id")
-    private Set<UserVote> votes;
+     * Nested collections are not supported by single-query loading.
+     * Populated by CustomPostRepositoryImpl via a batch query on user_votes.
      */
+    @Transient
+    private Set<UserVote> votes = Collections.emptySet();
 
     public Long getId() {
         return id;
@@ -37,5 +41,13 @@ public class PostComment {
     public PostComment setReview(String review) {
         this.review = review;
         return this;
+    }
+
+    public Set<UserVote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(Set<UserVote> votes) {
+        this.votes = votes;
     }
 }

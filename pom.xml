@@ -38,9 +38,16 @@
 
         <blaze-persistence.version>1.6.13</blaze-persistence.version>
         <hypersistence-utils.version>3.11.0</hypersistence-utils.version>
+        <jooq.version>3.19.20</jooq.version>
 
         <junit.version>4.13.1</junit.version>
         <junit-vintage.engine.version>5.13.4</junit-vintage.engine.version>
+
+        <jmh.version>1.37</jmh.version>
+
+        <skip.unit.tests>false</skip.unit.tests>
+        <skip.benchmark.tests>true</skip.benchmark.tests>
+        <console.log.level>DEBUG</console.log.level>
     </properties>
 
     <dependencyManagement>
@@ -110,6 +117,12 @@
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>${jooq.version}</version>
         </dependency>
 
         <dependency>
@@ -192,6 +205,21 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- JMH -->
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>${jmh.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>${jmh.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -202,6 +230,18 @@
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <release>${jdk.version}</release>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.hibernate.orm</groupId>
+                            <artifactId>hibernate-jpamodelgen</artifactId>
+                            <version>${hibernate.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.openjdk.jmh</groupId>
+                            <artifactId>jmh-generator-annprocess</artifactId>
+                            <version>${jmh.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>
@@ -209,13 +249,54 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <argLine>-Xms1024m -Xmx1024m</argLine>
-                    <argLine>--enable-preview</argLine>
-                    <argLine>-XX:+EnableDynamicAgentLoading</argLine>
+                    <argLine>-Xms1024m -Xmx1024m -XX:+EnableDynamicAgentLoading</argLine>
+                    <skipTests>${skip.unit.tests}</skipTests>
+                    <skip>${skip.unit.tests}</skip>
+                    <excludes>
+                        <exclude>**/*BenchmarkTest.java</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven-failsafe-plugin.version}</version>
+                <configuration>
+                    <argLine>-Xms1024m -Xmx1024m -XX:+EnableDynamicAgentLoading</argLine>
+                    <skipTests>${skip.benchmark.tests}</skipTests>
+                    <includes>
+                        <include>**/*BenchmarkTest.java</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
     </build>
+
+    <profiles>
+        <profile>
+            <id>benchmark-tests</id>
+            <properties>
+                <skip.benchmark.tests>false</skip.benchmark.tests>
+                <skip.unit.tests>true</skip.unit.tests>
+                <console.log.level>WARN</console.log.level>
+            </properties>
+        </profile>
+    </profiles>
 
     <!-- Apache 2 license -->
     <licenses>

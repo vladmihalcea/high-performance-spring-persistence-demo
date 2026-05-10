@@ -2,8 +2,8 @@ package com.vladmihalcea.spring.demo.repository.jpa;
 
 import com.blazebit.persistence.PagedList;
 import com.vladmihalcea.spring.demo.domain.jpa.Post;
-import com.vladmihalcea.spring.demo.domain.jpa.views.PostWithCommentsAndTagsView;
 import com.vladmihalcea.spring.demo.domain.jpa.dtos.PostSummary;
+import com.vladmihalcea.spring.demo.domain.jpa.views.PostWithCommentsAndTagsView;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
